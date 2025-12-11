@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MittCV.se</title>
+
+    <!-- Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="siteHeader">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="https://thumbs.dreamstime.com/z/gammal-skrivmaskin-5949055.jpg" class="logo-icon" alt="Skrivmaskin">
+                <span class="logo-text">MITTCV.SE</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- STARTSIDA -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="hero-left">
+                <p class="eyebrow">Modern karriär · Klassisk känsla</p>
+                <h1>Skapa ett modernt CV och personligt brev på några minuter.</h1>
+                <p class="intro-text">
+                    Fyll i fälten – förhandsgranskningen uppdateras live på höger sida. När du är nöjd laddar du ner
+                    ditt färdiga dokument.
+                </p>
+
+                <div class="button-row">
+                    <button class="main-btn" onclick="navigate('cvForm')">Skapa CV</button>
+                    <button class="main-btn secondary" onclick="navigate('pbForm')">Skapa personligt brev</button>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-preview-card">
+                    <div class="hero-preview-heading">
+                        <div class="hero-preview-avatar"></div>
+                        <div>
+                            <div class="hero-preview-name">Ditt Namn</div>
+                            <div class="hero-preview-title">Din titel</div>
+                        </div>
+                    </div>
+                    <div class="hero-preview-line"></div>
+                    <p class="hero-preview-text">
+                        Ett stilrent CV och ett genomtänkt personligt brev gör att du sticker ut redan innan intervjun har börjat.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFO-RUTOR OM CV & PERSONLIGT BREV -->
+        <div class="info-row">
+            <div class="info-block">
+                <h2>Vad gör ett CV för dig?</h2>
+                <p>
+                    CV:t är din överblick. Här visar du din utbildning, arbetslivserfarenhet och dina färdigheter
+                    på ett strukturerat sätt.
+                </p>
+                <p>
+                    Ett bra CV är lätt att skanna för rekryteraren och gör det enkelt att se varför just du är rätt för tjänsten.
+                </p>
+            </div>
+
+            <div class="info-block">
+                <h2>Vad gör ett personligt brev?</h2>
+                <p>
+                    Det personliga brevet är din röst. Här berättar du vem du är, vad som driver dig och varför du söker just det här jobbet.
+                </p>
+                <p>
+                    Med ett genomtänkt brev blir du mer än bara punkter på ett papper – du blir en person de vill träffa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV: FORM + LIVE PREVIEW -->
+    <section id="cvForm" class="page">
+
+        <h2>Skapa ditt CV</h2>
+        <p class="section-intro">
+            Skriv in dina uppgifter till vänster. Förhandsgranskningen till höger uppdateras automatiskt.
+        </p>
+
+        <div class="editor-area">
+
+            <!-- FORM VÄNSTER -->
+            <div class="editor-left">
+
+                <label for="cv_name">Namn</label>
+                <input type="text" id="cv_name" placeholder="Ditt namn">
+
+                <label for="cv_title">Titel</label>
+                <input type="text" id="cv_title" placeholder="Ex. Digital marknadsförare">
+
+                <label for="cv_profile">Profil</label>
+                <textarea id="cv_profile" placeholder="Kort sammanfattning av vem du är och vad du söker..."></textarea>
+
+                <label for="cv_exp">Erfarenhet</label>
+                <textarea id="cv_exp" placeholder="Tidigare roller, arbetsplatser och ansvarsområden..."></textarea>
+
+                <label for="cv_edu">Utbildning</label>
+                <textarea id="cv_edu" placeholder="Utbildningar, kurser och certifikat..."></textarea>
+
+                <label for="cv_skills">Färdigheter</label>
+                <textarea id="cv_skills" placeholder="Ex. Kommunikation, projektledning, Google Analytics..."></textarea>
+
+                <label for="cv_languages">Språk</label>
+                <textarea id="cv_languages" placeholder="Ex. Svenska (flytande), Engelska (mycket bra)..."></textarea>
+
+                <label for="cv_img">Bild</label>
+                <input type="file" id="cv_img" accept="image/*">
+
+                <div class="form-actions">
+                    <button class="main-btn" onclick="downloadPDF('cvPreviewPaper')">Ladda ner CV som PNG/PDF</button>
+                    <button class="ghost-btn" onclick="navigate('home')">Till startsidan</button>
+                </div>
+            </div>
+
+            <!-- PREVIEW HÖGER -->
+            <div class="editor-right">
+                <div id="cvPreviewPaper" class="preview-paper cv-paper">
+                    <img id="cv_img_preview" class="preview-img" style="display:none;" alt="Profilbild">
+
+                    <h2 id="cv_prev_name">Ditt namn</h2>
+                    <p id="cv_prev_title" class="muted"></p>
+
+                    <h3>Profil</h3>
+                    <p id="cv_prev_profile" class="preview-section"></p>
+
+                    <h3>Erfarenhet</h3>
+                    <p id="cv_prev_exp" class="preview-section"></p>
+
+                    <h3>Utbildning</h3>
+                    <p id="cv_prev_edu" class="preview-section"></p>
+
+                    <h3>Färdigheter</h3>
+                    <p id="cv_prev_skills" class="preview-section"></p>
+
+                    <h3>Språk</h3>
+                    <p id="cv_prev_languages" class="preview-section"></p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PERSONLIGT BREV: FORM + LIVE PREVIEW -->
+    <section id="pbForm" class="page">
+
+        <h2>Skapa ditt personliga brev</h2>
+        <p class="section-intro">
+            Beskriv vem du är, vad du gjort och varför du söker tjänsten. Brevet uppdateras live till höger.
+        </p>
+
+        <div class="editor-area">
+
+            <!-- FORM VÄNSTER -->
+            <div class="editor-left">
+
+                <label for="pb_name">Namn</label>
+                <input type="text" id="pb_name" placeholder="Ditt namn">
+
+                <label for="pb_age">Ålder</label>
+                <input type="text" id="pb_age" placeholder="Ex. 27 år">
+
+                <label for="pb_interests">Intressen</label>
+                <textarea id="pb_interests" placeholder="Vad gillar du att göra på fritiden?"></textarea>
+
+                <label for="pb_story">Bakgrund</label>
+                <textarea id="pb_story" placeholder="Kort om din resa, tidigare jobb och studier..."></textarea>
+
+                <label for="pb_why">Varför söker du jobbet?</label>
+                <textarea id="pb_why" placeholder="Vad lockar med tjänsten och varför passar du?"></textarea>
+
+                <label for="pb_img">Bild</label>
+                <input type="file" id="pb_img" accept="image/*">
+
+                <div class="form-actions">
+                    <button class="main-btn" onclick="downloadPDF('pbPreviewPaper')">Ladda ner brevet som PNG/PDF</button>
+                    <button class="ghost-btn" onclick="navigate('home')">Till startsidan</button>
+                </div>
+            </div>
+
+            <!-- PREVIEW HÖGER -->
+            <div class="editor-right">
+                <div id="pbPreviewPaper" class="preview-paper letter-paper">
+                    <img id="pb_img_preview" class="preview-img" style="display:none;" alt="Profilbild">
+
+                    <h2 id="pb_prev_name">Ditt namn</h2>
+                    <p id="pb_prev_age" class="muted"></p>
+
+                    <h3>Intressen</h3>
+                    <p id="pb_prev_interests" class="preview-section"></p>
+
+                    <h3>Bakgrund</h3>
+                    <p id="pb_prev_story" class="preview-section"></p>
+
+                    <h3>Varför jag söker tjänsten</h3>
+                    <p id="pb_prev_why" class="preview-section"></p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 MittCV.se</p>
+
+        <div class="footer-icons">
+            <a href="https://www.facebook.com" target="_blank" class="footer-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="footer-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+            </a>
+        </div>
+    </footer>
+
+    <!-- HTML2CANVAS FÖR NEDLADDNING -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
