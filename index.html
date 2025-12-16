@@ -382,5 +382,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- HTML2CANVAS FÖR NEDLADDNING -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
+      <!-- FEEDBACK POPUP (lägg till innan </body>) -->
+<div class="feedback-pop" id="feedbackPop" aria-hidden="true">
+  <div class="feedback-card" role="dialog" aria-label="Ge omdöme på MittCV.se">
+    <button class="feedback-close" id="feedbackClose" type="button" aria-label="Stäng">✕</button>
+
+    <div class="feedback-title">Tycker du om MittCV.se?</div>
+    <div class="feedback-subtitle">Klicka ett ansikte:</div>
+
+    <div class="feedback-faces" role="group" aria-label="Omdöme">
+      <button class="face-btn" type="button" data-rating="dåligt" aria-label="Dåligt"></button>
+      <button class="face-btn" type="button" data-rating="medel" aria-label="Medel"></button>
+      <button class="face-btn" type="button" data-rating="bra" aria-label="Bra"></button>
+    </div>
+
+    <div class="feedback-thanks" id="feedbackThanks" aria-live="polite"></div>
+  </div>
+</div>
+
 </body>
 </html>
+
