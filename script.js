@@ -36,6 +36,7 @@ window.dataLayer.push({
     populateCountries();
 
     setupAccountUI();
+    setupFeedbackPopup();
 });
 
 function nl2br(str) {
@@ -307,4 +308,54 @@ function setupAccountUI() {
         });
     }
 }
+/* ---------------------------
+   FEEDBACK POPUP (faces)
+---------------------------- */
+function setupFeedbackPopup() {
+    const pop = document.getElementById("feedbackPop");
+    const closeBtn = document.getElementById("feedbackClose");
+    const thanks = document.getElementById("feedbackThanks");
+    if (!pop || !closeBtn || !thanks) return;
+
+    const STORAGE_KEY = "mittcv_feedback_v1";
+
+    // Om redan svarat: visa inte igen
+    const existing = localStorage.getItem(STORAGE_KEY);
+    if (existing) return;
+
+    // Visa efter liten delay (så den inte hoppar in direkt)
+    setTimeout(() => {
+        pop.classList.add("is-open");
+        pop.setAttribute("aria-hidden", "false");
+    }, 1500);
+
+    // Stäng
+    closeBtn.addEventListener("click", () => {
+        pop.classList.remove("is-open");
+        pop.setAttribute("aria-hidden", "true");
+    });
+
+    // Klick på ansikten
+    pop.addEventListener("click", (e) => {
+        const btn = e.target.closest(".face-btn");
+        if (!btn) return;
+
+        const rating = btn.getAttribute("data-rating"); // "dåligt" | "medel" | "bra"
+        localStorage.setItem(STORAGE_KEY, rating);
+
+        // (valfritt) skicka event till GTM/GA via dataLayer
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: "mittcv_feedback",
+            feedback_rating: rating
+        });
+
+        thanks.textContent = "Tack! 🙌";
+        setTimeout(() => {
+            pop.classList.remove("is-open");
+            pop.setAttribute("aria-hidden", "true");
+        }, 900);
+    });
+}
+
 
