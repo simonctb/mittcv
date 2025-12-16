@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Om man klickar på menyområdet, låt det hanteras av menyn
             const menuWrap = document.getElementById("menuWrap");
             if (menuWrap && menuWrap.contains(e.target)) return;
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  event: "signup_submit",
+  country: country
+});
 
             navigate("home");
         });
@@ -302,3 +307,4 @@ function setupAccountUI() {
         });
     }
 }
+
