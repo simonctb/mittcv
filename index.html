@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <!-- Google Tag Manager -->
+      <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -28,10 +28,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- HEADER -->
     <header class="header" id="siteHeader">
         <div class="header-inner">
-            <div class="logo">
+            <!-- Menu (uppe till vänster) -->
+            <div class="menu-wrap" id="menuWrap">
+                <button class="menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-controls="siteMenu">
+                    ☰ Meny
+                </button>
+
+                <div class="menu-dropdown" id="siteMenu" role="menu" aria-label="Navigation">
+                    <button class="menu-item" role="menuitem" type="button" data-nav="cvForm">Skapa CV</button>
+                    <button class="menu-item" role="menuitem" type="button" data-nav="pbForm">Skapa personligt brev</button>
+                    <div class="menu-sep"></div>
+                    <button class="menu-item" role="menuitem" type="button" data-nav="accountLogin">Mitt konto</button>
+                </div>
+            </div>
+
+            <div class="logo" aria-label="MittCV.se">
                 <img src="https://thumbs.dreamstime.com/z/gammal-skrivmaskin-5949055.jpg" class="logo-icon" alt="Skrivmaskin">
                 <span class="logo-text">MITTCV.SE</span>
             </div>
+
+            <!-- Spacer för att loggan ska hamna centrerad visuellt -->
+            <div class="header-spacer" aria-hidden="true"></div>
         </div>
     </header>
 
@@ -92,21 +109,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </p>
             </div>
         </div>
+
+        <!-- CV-EXEMPEL (klicka för förstoring) -->
+        <section class="home-section" aria-label="Exempel på CV">
+            <h2 class="home-section-title">Exempel på CV</h2>
+            <p class="home-section-subtitle">Klicka på ett exempel för att förstora.</p>
+
+            <div class="templates-grid" id="templatesGrid">
+                <button class="template-thumb" type="button" data-template="classic">
+                    <div class="template-mini template-mini--classic" aria-hidden="true">
+                        <div class="mini-header"></div>
+                        <div class="mini-lines"></div>
+                        <div class="mini-lines mini-lines--short"></div>
+                        <div class="mini-columns">
+                            <div class="mini-col"></div>
+                            <div class="mini-col"></div>
+                        </div>
+                    </div>
+                    <div class="template-label">Klassisk</div>
+                </button>
+
+                <button class="template-thumb" type="button" data-template="modern">
+                    <div class="template-mini template-mini--modern" aria-hidden="true">
+                        <div class="mini-badge"></div>
+                        <div class="mini-header"></div>
+                        <div class="mini-lines"></div>
+                        <div class="mini-lines mini-lines--short"></div>
+                    </div>
+                    <div class="template-label">Modern</div>
+                </button>
+
+                <button class="template-thumb" type="button" data-template="bold">
+                    <div class="template-mini template-mini--bold" aria-hidden="true">
+                        <div class="mini-split">
+                            <div class="mini-split-left"></div>
+                            <div class="mini-split-right">
+                                <div class="mini-header"></div>
+                                <div class="mini-lines"></div>
+                                <div class="mini-lines mini-lines--short"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-label">Tydlig</div>
+                </button>
+            </div>
+        </section>
+
+        <!-- KUNDOMDÖMEN -->
+        <section class="home-section" aria-label="Kundomdömen">
+            <h2 class="home-section-title">Kundomdömen</h2>
+            <p class="home-section-subtitle">3 snabba från personer som skapade CV här.</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars" aria-label="5 av 5 stjärnor">★★★★★</div>
+                    <p class="testimonial-text">“Jag byggde CV:t på 10 minuter och fick intervju samma vecka. Superenkelt och snyggt!”</p>
+                    <div class="testimonial-name">— Elin, Göteborg</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars" aria-label="5 av 5 stjärnor">★★★★★</div>
+                    <p class="testimonial-text">“Personliga brevet blev faktiskt… personligt. Layouten kändes proffsig direkt.”</p>
+                    <div class="testimonial-name">— Amir, Malmö</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars" aria-label="5 av 5 stjärnor">★★★★★</div>
+                    <p class="testimonial-text">“Jag fick jobbet! Rekryteraren sa att mitt CV var lätt att läsa och tydligt.”</p>
+                    <div class="testimonial-name">— Sofia, Stockholm</div>
+                </div>
+            </div>
+        </section>
     </section>
 
     <!-- CV: FORM + LIVE PREVIEW -->
     <section id="cvForm" class="page">
-
         <h2>Skapa ditt CV</h2>
         <p class="section-intro">
             Skriv in dina uppgifter till vänster. Förhandsgranskningen till höger uppdateras automatiskt.
         </p>
 
         <div class="editor-area">
-
             <!-- FORM VÄNSTER -->
             <div class="editor-left">
-
                 <label for="cv_name">Namn</label>
                 <input type="text" id="cv_name" placeholder="Ditt namn">
 
@@ -157,27 +242,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3>Färdigheter</h3>
                     <p id="cv_prev_skills" class="preview-section"></p>
 
-                    <h3>Språk</h3>
+                    <áFGPVn\	s1g�>
                     <p id="cv_prev_languages" class="preview-section"></p>
                 </div>
             </div>
         </div>
-
     </section>
 
     <!-- PERSONLIGT BREV: FORM + LIVE PREVIEW -->
     <section id="pbForm" class="page">
-
         <h2>Skapa ditt personliga brev</h2>
         <p class="section-intro">
             Beskriv vem du är, vad du gjort och varför du söker tjänsten. Brevet uppdateras live till höger.
         </p>
 
         <div class="editor-area">
-
             <!-- FORM VÄNSTER -->
             <div class="editor-left">
-
                 <label for="pb_name">Namn</label>
                 <input type="text" id="pb_name" placeholder="Ditt namn">
 
@@ -221,18 +302,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </div>
-
     </section>
+
+    <!-- MITT KONTO: LOGGA IN -->
+    <section id="accountLogin" class="page">
+        <h2>Mitt konto</h2>
+        <p class="section-intro">Logga in för att spara och fortsätta jobba med dina dokument.</p>
+
+        <div class="account-card">
+            <label for="login_email">Email</label>
+            <input type="email" id="login_email" placeholder="namn@exempel.se" autocomplete="email">
+
+            <label for="login_password">Lösenord</label>
+            <input type="password" id="login_password" placeholder="••••••••" autocomplete="current-password">
+
+            <div class="form-actions">
+                <button class="main-btn" id="loginBtn" type="button">Logga in</button>
+                <button class="ghost-btn" type="button" onclick="navigate('home')">Till startsidan</button>
+            </div>
+
+            <p class="account-help">
+                Har du inget konto?
+                <button class="link-btn" type="button" onclick="navigate('accountSignup')">Skapa nytt konto</button>
+            </p>
+
+            <p class="account-note" id="loginNote" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <!-- SKAPA NYTT KONTO -->
+    <section id="accountSignup" class="page">
+        <h2>Skapa nytt konto</h2>
+        <p class="section-intro">Skapa ett konto med email, lösenord och land.</p>
+
+        <div class="account-card">
+            <label for="signup_email">Email</label>
+            <input type="email" id="signup_email" placeholder="namn@exempel.se" autocomplete="email">
+
+            <label for="signup_password">Lösenord</label>
+            <input type="password" id="signup_password" placeholder="Minst 8 tecken" autocomplete="new-password">
+
+            <label for="signup_country">Land</label>
+            <select id="signup_country">
+                <option value="" selected>Välj land…</option>
+            </select>
+
+            <div class="form-actions">
+                <button class="main-btn" id="signupBtn" type="button">Skapa konto</button>
+                <button class="ghost-btn" type="button" onclick="navigate('accountLogin')">Till Mitt konto</button>
+            </div>
+
+            <p class="account-note" id="signupNote" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <!-- MODAL FÖR CV-EXEMPEL -->
+    <div class="modal" id="templateModal" aria-hidden="true" role="dialog" aria-label="Förhandsvisning av CV-exempel">
+        <div class="modal-backdrop" data-modal-close="true"></div>
+        <div class="modal-content" role="document">
+            <button class="modal-close" type="button" aria-label="Stäng" data-modal-close="true">✕</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
         <p>© 2025 MittCV.se</p>
 
         <div class="footer-icons">
-            <a href="https://www.facebook.com" target="_blank" class="footer-icon">
+            <a href="https://www.facebook.com" target="_blank" class="footer-icon" rel="noreferrer">
                 <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook">
             </a>
-            <a href="https://www.instagram.com" target="_blank" class="footer-icon">
+            <a href="https://www.instagram.com" target="_blank" class="footer-icon" rel="noreferrer">
                 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
             </a>
         </div>
@@ -243,4 +384,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="script.js"></script>
 </body>
 </html>
-
