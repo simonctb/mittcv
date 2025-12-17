@@ -19,8 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({
   event: "signup_submit",
-  country: country
+  country: (typeof country !== "undefined" ? country : "")
 });
+
 
             navigate("home");
         });
@@ -357,5 +358,6 @@ function setupFeedbackPopup() {
         }, 900);
     });
 }
+
 
 
