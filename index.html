@@ -379,48 +379,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </footer>
 
+       <!-- FEEDBACK POPUP (lägg till innan </body>) -->
+    <div class="feedback-pop" id="feedbackPop" aria-hidden="true">
+      <div class="feedback-card" role="dialog" aria-label="Ge omdöme på MittCV.se">
+        <button class="feedback-close" id="feedbackClose" type="button" aria-label="Stäng">✕</button>
+
+        <div class="feedback-title">Tycker du om MittCV.se?</div>
+        <div class="feedback-subtitle">Klicka ett ansikte:</div>
+
+        <div class="feedback-faces" role="group" aria-label="Omdöme">
+          <button class="face-btn" type="button" data-rating="dåligt" aria-label="Dåligt">
+            <img
+              src="https://media.istockphoto.com/id/946592760/sv/vektor/vector-emoji-r%C3%B6d-arg-ledsen-min.jpg?s=170667a&w=0&k=20&c=LV8YhtGXb8t9dC8jE8EZ3UoDGg96q-todf3oibdrR88="
+              alt="Dåligt omdöme">
+          </button>
+
+          <button class="face-btn" type="button" data-rating="medel" aria-label="Medel">
+            <img
+              src="https://thumbs.dreamstime.com/b/emoticon-f%C3%B6r-rak-framsida-115547599.jpg"
+              alt="Medel omdöme">
+          </button>
+
+          <button class="face-btn" type="button" data-rating="bra" aria-label="Bra">
+            <img
+              src="https://us.123rf.com/450wm/digitalcliparts/digitalcliparts1907/digitalcliparts190700229/127134189-glad-smiley-vector-illustration-a-flat-illustration-design-of-glad-smiley-icon-on-a-white.jpg?ver=6"
+              alt="Bra omdöme">
+          </button>
+        </div>
+
+        <div class="feedback-thanks" id="feedbackThanks" aria-live="polite"></div>
+      </div>
+    </div>
+
     <!-- HTML2CANVAS FÖR NEDLADDNING -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
-      <!-- FEEDBACK POPUP (lägg till innan </body>) -->
-<div class="feedback-pop" id="feedbackPop" aria-hidden="true">
-  <div class="feedback-card" role="dialog" aria-label="Ge omdöme på MittCV.se">
-    <button class="feedback-close" id="feedbackClose" type="button" aria-label="Stäng">✕</button>
 
-    <div class="feedback-title">Tycker du om MittCV.se?</div>
-    <div class="feedback-subtitle">Klicka ett ansikte:</div>
-
-    <div class="feedback-faces" role="group" aria-label="Omdöme">
-    <button class="face-btn" type="button" data-rating="dåligt" aria-label="Dåligt">
-  <img 
-    src=https://media.istockphoto.com/id/946592760/sv/vektor/vector-emoji-r%C3%B6d-arg-ledsen-min.jpg?s=170667a&w=0&k=20&c=LV8YhtGXb8t9dC8jE8EZ3UoDGg96q-todf3oibdrR88=" 
-          alt="Dåligt omdöme"
-  >
-</button>
-     <button class="face-btn" type="button" data-rating="medel" aria-label="Medel">
-  <img
-    src="https://thumbs.dreamstime.com/b/emoticon-f%C3%B6r-rak-framsida-115547599.jpg"
-        alt="Medel omdöme"
-  >
-</button>
-
-      <button class="face-btn" type="button" data-rating="bra" aria-label="Bra">
-  <img
-    src="https://us.123rf.com/450wm/digitalcliparts/digitalcliparts1907/digitalcliparts190700229/127134189-glad-smiley-vector-illustration-a-flat-illustration-design-of-glad-smiley-icon-on-a-white.jpg?ver=6"
-        alt="Bra omdöme"
-  >
-</button>
-    </div>
-
-    <div class="feedback-thanks" id="feedbackThanks" aria-live="polite"></div>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>
-
-
-
-
-
-
