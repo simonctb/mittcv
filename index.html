@@ -414,6 +414,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- HTML2CANVAS FÖR NEDLADDNING -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
+<script>
+  // HARD FORCE: visa popup utan att använda script.js
+  (function () {
+    const pop = document.getElementById("feedbackPop");
+    if (!pop) {
+      console.log("Hittar inte #feedbackPop i DOM.");
+      return;
+    }
+    pop.classList.add("is-open");
+    pop.setAttribute("aria-hidden", "false");
+
+    // force styles if CSS inte laddar
+    pop.style.display = "block";
+    pop.style.position = "fixed";
+    pop.style.top = "20px";
+    pop.style.right = "20px";
+    pop.style.left = "auto";
+    pop.style.bottom = "auto";
+    pop.style.zIndex = "99999";
+
+    console.log("Popup forced open ✅");
+  })();
+</script>
 
   </body>
 </html>
+
