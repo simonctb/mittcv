@@ -424,6 +424,74 @@ function setupFeedbackPopup() {
     try { init(); } catch (err) { console.error("Feedback popup error:", err); }
   });
 })();
+(function () {
+  const STORAGE_KEY = "mittcv_feedback_v1";
+
+  function showThanks() {
+    const faces = document.querySelector("#feedbackPop .feedback-faces");
+    const thanks = document.getElementById("feedbackThanks");
+    if (faces) faces.classList.add("is-hidden");
+    if (thanks) thanks.textContent = "Tack för ditt svar!";
+  }
+
+  function openPopupIfNeeded() {
+    const pop = document.getElementById("feedbackPop");
+    if (!pop) return;
+
+    // om redan svarat: visa inte popup (eller visa tack om du vill)
+    const existing = localStorage.getItem(STORAGE_KEY);
+    if (existing) return;
+
+    pop.classList.add("is-open");
+    pop.setAttribute("aria-hidden", "false");
+  }
+
+  window.addEventListener("load", () => {
+    const pop = document.getElementById("feedbackPop");
+    if (!pop) return;
+
+    // Visa popup (om inte redan svarat)
+    setTimeout(openPopupIfNeeded, 800);
+
+    // Stängknapp
+    const closeBtn = document.getElementById("feedbackClose");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        pop.classList.remove("is-open");
+        pop.setAttribute("aria-hidden", "true");
+      });
+    }
+
+    // Klick på ansikten
+    pop.addEventListener("click", (e) => {
+      const btn = e.target.closest(".face-btn");
+      if (!btn) return;
+
+      const rating = btn.getAttribute("data-rating"); // dåligt | medel | bra
+      if (!rating) return;
+
+      // spara
+      localStorage.setItem(STORAGE_KEY, rating);
+
+      // skicka data (GTM)
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "mittcv_feedback",
+        feedback_rating: rating
+      });
+
+      // UI: göm emojis och visa tack
+      showThanks();
+
+      // valfritt: stäng efter 1.5s
+      setTimeout(() => {
+        pop.classList.remove("is-open");
+        pop.setAttribute("aria-hidden", "true");
+      }, 1500);
+    });
+  });
+})();
+
 
 
 
