@@ -358,6 +358,74 @@ function setupFeedbackPopup() {
         }, 900);
     });
 }
+/* === FEEDBACK POPUP FAILSAFE (copy/paste) === */
+(function () {
+  const STORAGE_KEY = "mittcv_feedback_v1";
+
+  function openPopup() {
+    const pop = document.getElementById("feedbackPop");
+    if (!pop) {
+      console.warn("feedbackPop saknas i HTML (id='feedbackPop').");
+      return;
+    }
+    pop.classList.add("is-open");
+    pop.setAttribute("aria-hidden", "false");
+  }
+
+  function closePopup() {
+    const pop = document.getElementById("feedbackPop");
+    if (!pop) return;
+    pop.classList.remove("is-open");
+    pop.setAttribute("aria-hidden", "true");
+  }
+
+  function init() {
+    const pop = document.getElementById("feedbackPop");
+    if (!pop) {
+      console.warn("feedbackPop saknas i HTML (id='feedbackPop').");
+      return;
+    }
+
+    // Om redan svarat: visa inte
+    if (localStorage.getItem(STORAGE_KEY)) return;
+
+    // Stängknapp
+    const closeBtn = document.getElementById("feedbackClose");
+    if (closeBtn) closeBtn.addEventListener("click", closePopup);
+
+    // Klick på ansikten
+    pop.addEventListener("click", (e) => {
+      const btn = e.target.closest(".face-btn");
+      if (!btn) return;
+
+      const rating = btn.getAttribute("data-rating") || "";
+
+      localStorage.setItem(STORAGE_KEY, rating);
+
+      // GTM event (säker)
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "mittcv_feedback",
+        feedback_rating: rating
+      });
+
+      const thanks = document.getElementById("feedbackThanks");
+      if (thanks) thanks.textContent = "Tack! 🙌";
+
+      setTimeout(closePopup, 900);
+    });
+
+    // Visa efter liten delay
+    setTimeout(openPopup, 1200);
+  }
+
+  // Kör när allt är laddat (robust även om DOMContentLoaded redan passerat)
+  window.addEventListener("load", () => {
+    try { init(); } catch (err) { console.error("Feedback popup error:", err); }
+  });
+})();
+
+
 
 
 
