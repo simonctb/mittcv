@@ -115,45 +115,90 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h2 class="home-section-title">Exempel på CV</h2>
             <p class="home-section-subtitle">Klicka på ett exempel för att förstora.</p>
 
-            <div class="templates-grid" id="templatesGrid">
-                <button class="template-thumb" type="button" data-template="classic">
-                    <div class="template-mini template-mini--classic" aria-hidden="true">
-                        <div class="mini-header"></div>
-                        <div class="mini-lines"></div>
-                        <div class="mini-lines mini-lines--short"></div>
-                        <div class="mini-columns">
-                            <div class="mini-col"></div>
-                            <div class="mini-col"></div>
-                        </div>
-                    </div>
-                    <div class="template-label">Klassisk</div>
-                </button>
+           <div class="templates-grid" id="templatesGrid">
 
-                <button class="template-thumb" type="button" data-template="modern">
-                    <div class="template-mini template-mini--modern" aria-hidden="true">
-                        <div class="mini-badge"></div>
-                        <div class="mini-header"></div>
-                        <div class="mini-lines"></div>
-                        <div class="mini-lines mini-lines--short"></div>
-                    </div>
-                    <div class="template-label">Modern</div>
-                </button>
+  <!-- Klassisk -->
+  <button class="template-thumb" type="button" data-template="classic">
+    <div class="cv-mini cv-mini--classic">
+      <div class="cv-mini__header">
+        <div class="cv-mini__name">Jasmine Furelid</div>
+        <div class="cv-mini__title">Projektledare • Stockholm</div>
+      </div>
 
-                <button class="template-thumb" type="button" data-template="bold">
-                    <div class="template-mini template-mini--bold" aria-hidden="true">
-                        <div class="mini-split">
-                            <div class="mini-split-left"></div>
-                            <div class="mini-split-right">
-                                <div class="mini-header"></div>
-                                <div class="mini-lines"></div>
-                                <div class="mini-lines mini-lines--short"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="template-label">Tydlig</div>
-                </button>
-            </div>
-        </section>
+      <div class="cv-mini__cols">
+        <div class="cv-mini__col">
+          <div class="cv-mini__h">Profil</div>
+          <div class="cv-mini__p">
+            Strukturerad projektledare med 6+ år inom tech och teamledning.
+          </div>
+
+          <div class="cv-mini__h">Erfarenhet</div>
+          <div class="cv-mini__item">
+            <div class="cv-mini__itemTitle">Nordic Digital</div>
+            <div class="cv-mini__itemMeta">Projektledare · 2022–nu</div>
+          </div>
+        </div>
+
+        <div class="cv-mini__col cv-mini__side">
+          <div class="cv-mini__h">Kompetenser</div>
+          <ul class="cv-mini__list">
+            <li>Agile / Scrum</li>
+            <li>Roadmaps</li>
+            <li>Stakeholders</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="template-label">Klassisk</div>
+  </button>
+
+  <!-- Modern -->
+  <button class="template-thumb" type="button" data-template="modern">
+    <div class="cv-mini cv-mini--modern">
+      <div class="cv-mini__header">
+        <div class="cv-mini__name">Ibrahim Hashem</div>
+        <div class="cv-mini__title">UX / UI Designer • Jönköping</div>
+      </div>
+
+      <div class="cv-mini__p">
+        Designer digitala produkter med fokus på enkelhet, flöde och konvertering.
+      </div>
+
+      <div class="cv-mini__h">Specialiteter</div>
+      <ul class="cv-mini__list">
+        <li>Figma</li>
+        <li>Design systems</li>
+        <li>User research</li>
+      </ul>
+    </div>
+    <div class="template-label">Modern</div>
+  </button>
+
+  <!-- Tydlig -->
+  <button class="template-thumb" type="button" data-template="bold">
+    <div class="cv-mini cv-mini--bold">
+      <div class="cv-mini__header cv-mini__header--bold">
+        <div>
+          <div class="cv-mini__name">Rasmus Fagerlund Ploby</div>
+          <div class="cv-mini__title">Drömmare • Örebro</div>
+        </div>
+        <div class="cv-mini__score">
+          <div class="cv-mini__scoreNum">+34%</div>
+          <div class="cv-mini__scoreLbl">YoY</div>
+        </div>
+      </div>
+
+      <div class="cv-mini__h">Resultat</div>
+      <ul class="cv-mini__list">
+        <li>Ökade pipeline 2.1M → 3.0M</li>
+        <li>18 enterprise-affärer</li>
+      </ul>
+    </div>
+    <div class="template-label">Tydlig</div>
+  </button>
+
+</div>
+
 
         <!-- KUNDOMDÖMEN -->
         <section class="home-section" aria-label="Kundomdömen">
@@ -439,6 +484,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+
 
 
 
