@@ -174,8 +174,8 @@ function setupTemplateModal() {
       <div class="cv-full cv-full--classic">
         <header class="cv-full__top">
           <div>
-            <h2>Alex Andersson</h2>
-            <p class="cv-full__meta">Projektledare • Stockholm • alex@email.com • 070-123 45 67</p>
+            <h2>Jasmine Furelid</h2>
+            <p class="cv-full__meta">Projektledare • Stockholm • jasmine@email.com • 070-123 45 67</p>
           </div>
         </header>
 
@@ -238,10 +238,10 @@ function setupTemplateModal() {
       <div class="cv-full cv-full--modern">
         <header class="cv-full__top cv-full__top--split">
           <div>
-            <h2>Samira Ali</h2>
-            <p class="cv-full__meta">UX/UI Designer • Göteborg • samira@email.com • 073-555 12 34</p>
+            <h2>Ibrahim Hashem</h2>
+            <p class="cv-full__meta">UX/UI Designer • Jönköping • ibbe@email.com • 073-555 12 34</p>
           </div>
-          <div class="cv-full__pill">Portfolio: samira.design</div>
+          <div class="cv-full__pill">Portfolio: ibbe.design</div>
         </header>
 
         <section class="cv-full__block">
@@ -312,8 +312,8 @@ function setupTemplateModal() {
       <div class="cv-full cv-full--bold">
         <header class="cv-full__top cv-full__top--split">
           <div>
-            <h2>Oskar Lind</h2>
-            <p class="cv-full__meta">Account Executive • Malmö • oskar@email.com • 072-222 33 44</p>
+            <h2>Rasmus Fagerlund</h2>
+            <p class="cv-full__meta">Drömmare • Örebro • ralle@email.com • 072-222 33 44</p>
           </div>
           <div class="cv-full__kpi">
             <div class="cv-full__kpiNum">+34%</div>
@@ -325,9 +325,9 @@ function setupTemplateModal() {
           <section>
             <h3>Resultatprofil</h3>
             <ul>
-              <li>Ökade pipeline från 2.1M → 3.0M på 12 månader.</li>
-              <li>Stängde 18 enterprise-affärer (B2B SaaS).</li>
-              <li>Lyfte NPS från 42 → 58 med tydligare onboarding.</li>
+              <li>Drömde om att öka omsättning från 2.1M → 3.0M på 12 månader.</li>
+              <li>Drömde om att stänga 18 enterprise-affärer (B2B SaaS).</li>
+              <li>Drömde om att lyfta NPS från 42 → 58 med tydligare onboarding.</li>
             </ul>
 
             <h3>Erfarenhet</h3>
@@ -339,8 +339,8 @@ function setupTemplateModal() {
               </div>
               <div class="cv-full__muted">Account Executive</div>
               <ul>
-                <li>Ansvarar för nykund + upsell i SMB/Enterprise.</li>
-                <li>Förhandlar avtal och bygger långsiktiga relationer.</li>
+                <li>Ansvarar för nykundsdrömmare + upsell i SMB/Enterprise.</li>
+                <li>Förhandlar avtal och bygger långsiktiga drömmar.</li>
               </ul>
             </div>
 
@@ -360,10 +360,10 @@ function setupTemplateModal() {
           <aside class="cv-full__side">
             <h3>Styrkor</h3>
             <ul>
-              <li>Prospektering & discovery</li>
-              <li>Förhandling & closing</li>
-              <li>Account planning</li>
-              <li>CRM (HubSpot/Salesforce)</li>
+              <li>Drömma</li>
+              <li>Fantisera</li>
+              <li>Planera</li>
+              <li>Golfa</li>
             </ul>
 
             <h3>Utbildning</h3>
@@ -684,6 +684,7 @@ function setupFeedbackPopup() {
     });
   });
 })();
+
 
 
 
