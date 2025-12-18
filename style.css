@@ -767,6 +767,173 @@ select:focus {
   .cv-mini__cols{ grid-template-columns:1fr; }
   .cv-mini__side{ border-left:0; padding-left:0; border-top:1px solid rgba(0,0,0,.07); padding-top:10px; }
 }
+/* =========================
+   Template modal + full CV
+========================= */
+
+.cv-full{
+  padding:10px 4px 6px;
+}
+
+.cv-full h2{
+  margin:0;
+  font-size:28px;
+  letter-spacing:-0.02em;
+}
+
+.cv-full h3{
+  margin:18px 0 8px;
+  font-size:14px;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+
+.cv-full p{
+  margin:8px 0;
+  line-height:1.5;
+}
+
+.cv-full ul{
+  margin:8px 0 0 18px;
+  padding:0;
+}
+
+.cv-full li{
+  margin:6px 0;
+  line-height:1.45;
+}
+
+.cv-full__meta{
+  margin:6px 0 0;
+  opacity:.72;
+  font-size:13px;
+}
+
+.cv-full__muted{ opacity:.7; }
+
+.cv-full__top{
+  padding:14px 14px 10px;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+  background:rgba(0,0,0,.02);
+}
+
+.cv-full__top--split{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.cv-full__grid{
+  display:grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap:18px;
+  margin-top:14px;
+}
+
+.cv-full__side{
+  border-left:1px solid rgba(0,0,0,.08);
+  padding-left:18px;
+}
+
+.cv-full__job{
+  margin-top:12px;
+  padding:12px 12px;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:14px;
+  background:#fff;
+}
+
+.cv-full__row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:baseline;
+}
+
+.cv-full__block{
+  margin-top:14px;
+  padding:14px 14px;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:16px;
+  background:#fff;
+}
+
+/* Chips */
+.cv-full__chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}
+
+/* återanvänd chip från tidigare – men safe om den inte finns */
+.chip{
+  display:inline-block;
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:12px;
+  background:rgba(0,0,0,.06);
+}
+
+/* Modern accent */
+.cv-full--modern .cv-full__top{
+  background:linear-gradient(180deg, rgba(90, 230, 190, .18), rgba(90, 230, 190, 0));
+}
+
+/* Modern pill */
+.cv-full__pill{
+  font-size:12px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.06);
+  white-space:nowrap;
+}
+
+/* Bold KPI */
+.cv-full__kpi{
+  text-align:right;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(0,0,0,.06);
+}
+
+.cv-full__kpiNum{
+  font-weight:950;
+  font-size:18px;
+}
+
+.cv-full__kpiLbl{
+  font-size:12px;
+  opacity:.72;
+  margin-top:2px;
+}
+
+/* Modal panel polish (om du redan har dessa, behåll dina – annars funkar detta) */
+.modal__panel{
+  max-height: calc(100vh - 120px);
+  overflow:auto;
+}
+
+/* Responsivt */
+@media (max-width: 960px){
+  .cv-full__top--split{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .cv-full__grid{
+    grid-template-columns:1fr;
+  }
+  .cv-full__side{
+    border-left:0;
+    padding-left:0;
+    border-top:1px solid rgba(0,0,0,.08);
+    padding-top:14px;
+  }
+  .cv-full h2{ font-size:24px; }
+}
+
 
 
 
