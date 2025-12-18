@@ -164,59 +164,252 @@ function setupDropdownMenu() {
    CV-EXEMPEL MODAL
 ---------------------------- */
 function setupTemplateModal() {
-    const modal = document.getElementById("templateModal");
-    const modalBody = document.getElementById("modalBody");
-    const grid = document.getElementById("templatesGrid");
-    if (!modal || !modalBody || !grid) return;
+  const modal = document.getElementById("templateModal");
+  const modalBody = document.getElementById("modalBody");
+  const grid = document.getElementById("templatesGrid");
+  if (!modal || !modalBody || !grid) return;
 
-    const openModal = (templateKey) => {
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden", "false");
+  const templates = {
+    classic: `
+      <div class="cv-full cv-full--classic">
+        <header class="cv-full__top">
+          <div>
+            <h2>Alex Andersson</h2>
+            <p class="cv-full__meta">Projektledare • Stockholm • alex@email.com • 070-123 45 67</p>
+          </div>
+        </header>
 
-        // Bygg en “stor” förhandsvisning (enkel mock)
-        const titleMap = {
-            classic: "Klassisk CV-layout",
-            modern: "Modern CV-layout",
-            bold: "Tydlig CV-layout"
-        };
+        <div class="cv-full__grid">
+          <section>
+            <h3>Profil</h3>
+            <p>Strukturerad projektledare med 6+ år inom tech. Driver projekt från discovery till release med fokus på tydlig kommunikation, prioritering och leverans.</p>
 
-        modalBody.innerHTML = `
-            <div class="template-large">
-                <h3>${titleMap[templateKey] || "CV-layout"}</h3>
-                <div class="large-row"></div>
-                <div class="large-row short"></div>
-                <div class="large-row"></div>
-                <div class="large-grid">
-                    <div class="large-box"></div>
-                    <div class="large-box"></div>
-                </div>
+            <h3>Erfarenhet</h3>
+
+            <div class="cv-full__job">
+              <div class="cv-full__row">
+                <strong>Nordic Digital</strong>
+                <span class="cv-full__muted">2022–nu</span>
+              </div>
+              <div class="cv-full__muted">Projektledare</div>
+              <ul>
+                <li>Ledde 2 tvärfunktionella team (design, dev, QA).</li>
+                <li>Förbättrade lead time med 28% genom tydligare sprintplanering.</li>
+                <li>Levererade 12+ releaser/år med stabil kvalitet.</li>
+              </ul>
             </div>
-        `;
-        document.body.style.overflow = "hidden";
-    };
 
-    const closeModal = () => {
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
-        modalBody.innerHTML = "";
-        document.body.style.overflow = "";
-    };
+            <div class="cv-full__job">
+              <div class="cv-full__row">
+                <strong>BrightOps</strong>
+                <span class="cv-full__muted">2019–2022</span>
+              </div>
+              <div class="cv-full__muted">Junior projektledare</div>
+              <ul>
+                <li>Koordinerade roadmap och stakeholder-uppföljning.</li>
+                <li>Införde enklare uppföljning av scope och risk.</li>
+              </ul>
+            </div>
+          </section>
 
-    grid.addEventListener("click", (e) => {
-        const btn = e.target.closest(".template-thumb");
-        if (!btn) return;
-        const key = btn.getAttribute("data-template");
-        openModal(key);
-    });
+          <aside class="cv-full__side">
+            <h3>Kompetenser</h3>
+            <ul>
+              <li>Agile / Scrum</li>
+              <li>Roadmaps & prioritering</li>
+              <li>Stakeholder management</li>
+              <li>Budget & scope</li>
+            </ul>
 
-    modal.addEventListener("click", (e) => {
-        if (e.target && e.target.getAttribute("data-modal-close") === "true") closeModal();
-    });
+            <h3>Utbildning</h3>
+            <p><strong>Systemvetenskap</strong><br><span class="cv-full__muted">Stockholms universitet • 2016–2019</span></p>
 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
-    });
+            <h3>Språk</h3>
+            <ul>
+              <li>Svenska (modersmål)</li>
+              <li>Engelska (flytande)</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    `,
+
+    modern: `
+      <div class="cv-full cv-full--modern">
+        <header class="cv-full__top cv-full__top--split">
+          <div>
+            <h2>Samira Ali</h2>
+            <p class="cv-full__meta">UX/UI Designer • Göteborg • samira@email.com • 073-555 12 34</p>
+          </div>
+          <div class="cv-full__pill">Portfolio: samira.design</div>
+        </header>
+
+        <section class="cv-full__block">
+          <h3>Profil</h3>
+          <p>Product designer med 5 år inom SaaS & e-handel. Bygger design systems, gör research och omvandlar insikter till flöden som ökar konvertering.</p>
+
+          <div class="cv-full__chips">
+            <span class="chip">Figma</span>
+            <span class="chip">Design systems</span>
+            <span class="chip">Research</span>
+            <span class="chip">Prototyping</span>
+            <span class="chip">A/B-test</span>
+          </div>
+        </section>
+
+        <div class="cv-full__grid">
+          <section>
+            <h3>Erfarenhet</h3>
+
+            <div class="cv-full__job">
+              <div class="cv-full__row">
+                <strong>Breeze</strong>
+                <span class="cv-full__muted">2023–nu</span>
+              </div>
+              <div class="cv-full__muted">Product Designer</div>
+              <ul>
+                <li>Ökade checkout-konvertering med 11% via omdesign + A/B-test.</li>
+                <li>Skapade komponentbibliotek som minskade UI-inkonsekvens.</li>
+                <li>Ledde 15+ användartester och förbättrade onboarding.</li>
+              </ul>
+            </div>
+
+            <div class="cv-full__job">
+              <div class="cv-full__row">
+                <strong>Shoply</strong>
+                <span class="cv-full__muted">2020–2023</span>
+              </div>
+              <div class="cv-full__muted">UX Designer</div>
+              <ul>
+                <li>Gjorde research, wireframes och prototyper för nya flöden.</li>
+                <li>Förbättrade navigering som sänkte supportärenden.</li>
+              </ul>
+            </div>
+          </section>
+
+          <aside class="cv-full__side">
+            <h3>Verktyg</h3>
+            <ul>
+              <li>Figma, FigJam</li>
+              <li>Maze / Hotjar</li>
+              <li>Notion / Jira</li>
+            </ul>
+
+            <h3>Utbildning</h3>
+            <p><strong>Interaktionsdesign</strong><br><span class="cv-full__muted">Chalmers • 2017–2020</span></p>
+
+            <h3>Språk</h3>
+            <ul>
+              <li>Svenska (modersmål)</li>
+              <li>Engelska (flytande)</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    `,
+
+    bold: `
+      <div class="cv-full cv-full--bold">
+        <header class="cv-full__top cv-full__top--split">
+          <div>
+            <h2>Oskar Lind</h2>
+            <p class="cv-full__meta">Account Executive • Malmö • oskar@email.com • 072-222 33 44</p>
+          </div>
+          <div class="cv-full__kpi">
+            <div class="cv-full__kpiNum">+34%</div>
+            <div class="cv-full__kpiLbl">YoY Sales</div>
+          </div>
+        </header>
+
+        <div class="cv-full__grid">
+          <section>
+            <h3>Resultatprofil</h3>
+            <ul>
+              <li>Ökade pipeline från 2.1M → 3.0M på 12 månader.</li>
+              <li>Stängde 18 enterprise-affärer (B2B SaaS).</li>
+              <li>Lyfte NPS från 42 → 58 med tydligare onboarding.</li>
+            </ul>
+
+            <h3>Erfarenhet</h3>
+
+            <div class="cv-full__job">
+              <div class="cv-full__row">
+                <strong>Kraft Sales</strong>
+                <span class="cv-full__muted">2021–nu</span>
+              </div>
+              <div class="cv-full__muted">Account Executive</div>
+              <ul>
+                <li>Ansvarar för nykund + upsell i SMB/Enterprise.</li>
+                <li>Förhandlar avtal och bygger långsiktiga relationer.</li>
+              </ul>
+            </div>
+
+            <div class="cv-full__job">
+              <div class="cv-full__row">
+                <strong>NorthCom</strong>
+                <span class="cv-full__muted">2018–2021</span>
+              </div>
+              <div class="cv-full__muted">Sales Development Representative</div>
+              <ul>
+                <li>Byggde pipeline via prospektering och kvalificering.</li>
+                <li>Arbetade tätt med marketing kring kampanjer.</li>
+              </ul>
+            </div>
+          </section>
+
+          <aside class="cv-full__side">
+            <h3>Styrkor</h3>
+            <ul>
+              <li>Prospektering & discovery</li>
+              <li>Förhandling & closing</li>
+              <li>Account planning</li>
+              <li>CRM (HubSpot/Salesforce)</li>
+            </ul>
+
+            <h3>Utbildning</h3>
+            <p><strong>Företagsekonomi</strong><br><span class="cv-full__muted">Lunds universitet • 2015–2018</span></p>
+
+            <h3>Språk</h3>
+            <ul>
+              <li>Svenska (modersmål)</li>
+              <li>Engelska (flytande)</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    `
+  };
+
+  const openModal = (templateKey) => {
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    modalBody.innerHTML = templates[templateKey] || `<p>Hittade ingen template: ${templateKey}</p>`;
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    modalBody.innerHTML = "";
+    document.body.style.overflow = "";
+  };
+
+  grid.addEventListener("click", (e) => {
+    const btn = e.target.closest(".template-thumb");
+    if (!btn) return;
+    const key = btn.getAttribute("data-template");
+    openModal(key);
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target && e.target.getAttribute("data-modal-close") === "true") closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+  });
 }
+
 
 /* ---------------------------
    COUNTRIES (Signup dropdown)
@@ -491,6 +684,7 @@ function setupFeedbackPopup() {
     });
   });
 })();
+
 
 
 
